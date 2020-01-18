@@ -12,4 +12,4 @@ module.exports = {
       process.env.NODE_ENV === 'production'
         ? '../resources/views/index.blade.php'
         : 'index.html'
-}
+  }
