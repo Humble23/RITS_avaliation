@@ -1,10 +1,10 @@
-
 <script>
 export default {
     name:'info-list',
     props: ['info']
 }
 </script>
+
 <template>
     <div>
         <p>{{ info.title }}</p>
@@ -18,17 +18,16 @@ export default {
 <style scoped>
 div{
     text-align: left;
-    width: 368px;
+    width: 100%;
     height: 264px;
 }
 
 div > p{
-    font-weight: bold;
     font-size: 18px;
     line-height: 110%;
     /* or 20px */
-
     letter-spacing: -0.025em;
+    font-family: "TT Norms, bold";
 }
 
 div > ul{
@@ -41,8 +40,8 @@ div > ul > li{
     font-size: 16px;
     line-height: 130%;
     /* or 21px */
-    color:#bbb;
-    margin-top:15,px;
+    color:#ccc;
+    margin-top:15px;
     letter-spacing: -0.025em;
 }
 </style>

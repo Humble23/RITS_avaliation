@@ -1,16 +1,26 @@
 <script>
 export default {
     name:'custom-input',
-    props:['name']
+    props:['label', 'placeholder', 'param'],
 }
 </script>
+
 <template>
   <div>
-    <label>{{name}}</label>
-    <input :name="name" class="custom-input" />
+    <label>{{label}}</label>
+    <input class="custom-input" :placeholder="placeholder" />
   </div>
 </template>
+
 <style scoped>
+
+::placeholder {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: -0.025em;
+  color: #D1D0D1;
+}
 
 .custom-input{
     width: 28%;
@@ -19,23 +29,24 @@ export default {
     text-indent:18px;
     margin:5px 0px;
     background: #F6F6F7;
-    /* Verde */
+    font-family: "TT Norms";
+    border:none;
     box-sizing: border-box;
     border-radius: 2px;
     font-size: 16px;
     line-height: 130%;
-    /* identical to box height, or 21px */
-
     letter-spacing: -0.025em;
+}
 
-    /* BG Escuro */
-
-    /* color: #2E2236; */
+.custom-input:focus{   
+    border-color: rgba(78, 239, 97, 0.8);
+    box-shadow: 0 1px 1px rgba(78, 239, 97, 0.075) inset, 0 0 0px 2px rgba(78, 239, 97, 0.6);
+    outline: 0 none;
 }
 
 label{
     position:absolute;
-    transform:translate(21px, 14px);
+    transform:translate(18px, 14px);
     color: #6C6472;
     font-size: 10px;
     line-height: 110%;

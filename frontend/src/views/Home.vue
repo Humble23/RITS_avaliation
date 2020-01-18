@@ -2,6 +2,7 @@
 import RitsButton from '@/components/RitsButton.vue';
 import InfoList from '@/components/InfoList.vue';
 import MainMenu from '@/components/layout/MainMenu.vue';
+import MainFooter from '@/components/layout/Footer.vue';
 import MainForm from '@/components/Form.vue';
 
 export default {
@@ -40,73 +41,60 @@ export default {
     RitsButton,
     InfoList,
     MainMenu,
-    MainForm
-  }
+    MainForm,
+    MainFooter
+  },
 }
 </script>
 
 <template>
     <div>
         <b-container class="fill home" style="color:#fff; padding:0px;" fluid>
-                <b-container class="fill" style="background:rgba(45, 34, 54,.95); padding: 30px 80px;" fluid>
-                    <b-row class="mb-5">
-                        <main-menu />
-                    </b-row>
-                    <b-row>
-                        <b-col>
-                            <label style="color: #4EEF61; font-size: 12px;">Natal/RN - Brasil</label>
-                        </b-col>
-                    </b-row>
-                    <b-row class="mb-3">
-                        <b-col>
-                            <h2 class='title'>Desenvolvedor PHP</h2>
-                        </b-col>
-                    </b-row>
-                    <b-row class="m-3">
-                        <b-col>
-                            <rits-button :text="'CANDIDATE-SE'"/>
-                        </b-col>
-                    </b-row>
-                    <b-row class="mt-5">
-                        <b-col>
-                            <info-list :info="infos[0]"/>
-                        </b-col>
-                        <b-col>
-                            <info-list :info="infos[1]"/>
-                        </b-col>
-                        <b-col>
-                            <info-list :info="infos[2]"/>
-                        </b-col>
-                    </b-row>
-                </b-container>
-            </b-container>
-            <b-container class="fill" fluid style="background:#fff;">
-                <main-form />
-            </b-container>
-            <b-container fluid style="background:#F6F6F7; padding:30px; 0px;">
-                <b-row align-v="center">
+            <b-container class="fill" style="background:rgba(45, 34, 54,.95); padding: 30px 80px;" fluid>
+                <b-row class="mb-5">
+                    <main-menu />
+                </b-row>
+                <b-row style="margin-top:-40px;">
                     <b-col>
-                        <img src="../assets/img/rits-logo2.png" />
-                    </b-col>
-                    <b-col>
-                        <p><b>Rits Tecnologia. Todos os direitos reservados.</b></p>
-                        <p>Desenvolver e evoluir soluções digitais para negócios que acreditam na tecnologia como força propulsora.</p>
-                    </b-col>
-                    <b-col>
-                        <label style="color:#4EEF61;">Rits.com.br</label>
+                        <label style="color: #4EEF61; font-size: 12px;">NATAL/RN - BRASIL</label>
                     </b-col>
                 </b-row>
+                <b-row class="mb-3">
+                    <b-col>
+                        <h2 class='title'>Desenvolvedor PHP</h2>
+                    </b-col>
+                </b-row>
+                <b-row class="m-3">
+                    <b-col>
+                        <rits-button :text="'CANDIDATE-SE'"/>
+                    </b-col>
+                </b-row>
+                <b-row class="mt-5">
+                    <b-col>
+                        <info-list :info="infos[0]"/>
+                    </b-col>
+                    <b-col>
+                        <info-list :info="infos[1]"/>
+                    </b-col>
+                    <b-col>
+                        <info-list :info="infos[2]"/>
+                    </b-col>
+                </b-row>
+            </b-container>
         </b-container>
+        <b-container class="fill" fluid style="background:#fff;">
+            <main-form />
+        </b-container>
+        <main-footer />
     </div>
 </template>
 
 <style>
 .title{
-  font-weight: bold;
   font-size: 46px;
   line-height: 110%;
   /* or 51px */
-
+  font-family: "TT Norms, bold";
   text-align: center;
   letter-spacing: -0.025em;
 }

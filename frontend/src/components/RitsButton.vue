@@ -1,12 +1,14 @@
 <script>
 export default {
     name:'rits-button',
-    props: ['text']
+    props: ['text', 'widthPercent']
 }
 </script>
 
 <template>
-    <button>{{ text }}</button>
+    <button 
+        :style="widthPercent ? 'width:'+ widthPercent + '%': '' 
+        + !widthPercent ? 'box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);': ''">{{ text }}</button>
 </template>
 
 
@@ -16,7 +18,6 @@ button{
     border:none;
     width: 176px;
     height: 40px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius:100px;
     outline: none;
 }

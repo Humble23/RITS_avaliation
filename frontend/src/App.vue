@@ -17,7 +17,17 @@ export default {
 <style>
 @font-face {
   font-family: "TT Norms";
+  src: url("~@/assets/fonts/TTNorms-Regular.otf");
+}
+
+@font-face {
+  font-family: "TT Norms, bold";
   src: url("~@/assets/fonts/TTNorms-Bold.otf");
+}
+
+@font-face {
+  font-family: "TT Norms, medium";
+  src: url("~@/assets/fonts/TTNorms-Medium.otf");
 }
 
 html, body {
