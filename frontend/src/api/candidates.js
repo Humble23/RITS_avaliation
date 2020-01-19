@@ -13,6 +13,5 @@ export async function register({ name, email, phone, motivation, linkedin_link, 
     english_level && data.append("english_level", english_level);
     salary && data.append("salary", salary);
     curriculum && data.append("curriculum", curriculum);
-    
-    return await client.post("/teste", data, { headers: { "Content-Type": "multipart/form-data" } });
+    return await client.post("/candidate/register", data, { headers: { "Content-Type": "multipart/form-data" } });
 }

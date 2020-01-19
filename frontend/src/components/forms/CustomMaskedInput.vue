@@ -1,8 +1,9 @@
 <script>
+import { VueMaskDirective } from 'v-mask';
 
 export default {
     name:'custom-input',
-    props:['label', 'placeholder', 'value', 'param', 'error'],
+    props:['label', 'placeholder', 'value', 'param', 'error', 'mask'],
     computed:{
       new_value: {
         get() {
@@ -13,6 +14,9 @@ export default {
           if (newValue !== oldValue) this.$emit("update:value", newValue);
         }
       },
+    },
+    directives: {
+      mask: VueMaskDirective
     }
 }
 </script>
@@ -24,7 +28,8 @@ export default {
       class="custom-input"
       :class="error ? ' has-error' : ''" 
       :placeholder="placeholder" 
-      v-model="new_value"/>
+      v-model="new_value" 
+      v-mask='mask' />
       <div class="error">
         <p>
           {{error ? error[0] : ''}}

@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Mail\AlertOfNewsCandidates;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +15,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("admin");
 });
 
-// Route::view('/{any}', 'index')->where('any', '.*');
 
+Route::get('/send-mail', function () {
+
+    Mail::to('newuser@example.com')->send(new AlertOfNewsCandidates()); 
+
+    return 'A message has been sent to Mailtrap!';
+
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

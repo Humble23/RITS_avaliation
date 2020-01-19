@@ -18,6 +18,6 @@ use Illuminate\Http\Request;
 // });
 
 Route::group(['namespace' => 'Api'], function () {
-    Route::post('teste', 'CandidateController@register');
+    Route::post('candidate/register', 'CandidateController@register');
 });
 

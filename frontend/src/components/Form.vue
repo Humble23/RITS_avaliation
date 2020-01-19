@@ -1,12 +1,12 @@
 <script>
 import CustomInput from '@/components/forms/CustomInput.vue';
+import CustomMaskedInput from '@/components/forms/CustomMaskedInput.vue';
 import CustomTextarea from '@/components/forms/CustomTextarea.vue';
 import CustomSelect from '@/components/forms/CustomSelect.vue';
 import CustomFileupload from '@/components/forms/CustomFileupload.vue';
 import RitsButton from '@/components/RitsButton.vue';
 import { register } from "@/api/candidates";
 import { VMoney } from 'v-money';
-import { VueMaskDirective } from 'v-mask'
 
 export default {
     name:'custom-form',
@@ -23,7 +23,7 @@ export default {
                     name: '',
                     email: '',
                     phone: '',
-                    motivation: 'dsadsads',
+                    motivation: '',
                     linkedin_link: '',
                     github_link: '',
                     english_level: '',
@@ -48,6 +48,7 @@ export default {
     },
     components:{
         CustomInput,
+        CustomMaskedInput,
         CustomTextarea,
         CustomSelect,
         RitsButton,
@@ -55,7 +56,6 @@ export default {
     },
     directives: {
         money: VMoney,
-        VueMaskDirective
     },
     methods:{
         async onSubmit(e){
@@ -114,11 +114,12 @@ export default {
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-input 
+                    <custom-masked-input 
                         type="tel"
                         :label="'Telefone (COM DDD)'" 
                         :input-name="'phone'"
                         :value.sync="form.phone"
+                        :mask="'(##) #####-####'"
                         :placeholder="'(xx) xxxxx-xxxx'" 
                         :error="errors.errors.phone"/>
                 </b-col>

@@ -81,14 +81,16 @@ if (\Illuminate\Support\Str::startsWith(Auth::user()->avatar, 'http://') || \Ill
                     var appContainer = document.querySelector('.app-container'),
                         sidebar = appContainer.querySelector('.side-menu'),
                         navbar = appContainer.querySelector('nav.navbar.navbar-top'),
+                        navbar_header = appContainer.querySelector('.side-menu-container > .navbar-header'),
                         image = document.querySelector('.logo-icon-container > img');
                         navbar_img = document.querySelector('.bgimage');
-                        image.src = "{{ url('storage/img/logo.png') }}";
                         loader = document.getElementById('voyager-loader'),
                         hamburgerMenu = document.querySelector('.hamburger'),
                         sidebarTransition = sidebar.style.transition,
                         navbarTransition = navbar.style.transition,
                         containerTransition = appContainer.style.transition;
+
+                    navbar_header.style.background= '#353d47';
 
                     sidebar.style.WebkitTransition = sidebar.style.MozTransition = sidebar.style.transition =
                     appContainer.style.WebkitTransition = appContainer.style.MozTransition = appContainer.style.transition =

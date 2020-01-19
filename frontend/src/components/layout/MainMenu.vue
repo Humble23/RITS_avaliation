@@ -19,7 +19,7 @@ export default {
             <rits-button :text="'VAGAS ABERTAS'"/>
         </div>
     </nav> -->
-    <b-navbar toggleable="sm" variant="faded" type="dark" class="p-0">
+    <b-navbar toggleable="sm" variant="faded" type="dark" class="p-0" style="margin-top:-10px !important;">
 
         <b-navbar-brand>
             <img src="../../assets/img/rits-logo.png" />

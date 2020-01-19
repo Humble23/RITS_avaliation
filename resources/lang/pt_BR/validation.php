@@ -145,12 +145,13 @@ return [
     */
 
     'attributes' => [
-        'name' => 'nome',
-        'phone' => 'telefone',
+        'name'          => 'nome',
+        'phone'         => 'telefone',
+        'motivation'    => 'motivação',
         'linkedin_link' => 'url do linkedin',
-        'github_link' => 'url do github',
+        'github_link'   => 'url do github',
         'english_level' => 'nível de inglês',
-        'salary' => 'salário',        
+        'salary'        => 'salário',        
     ],
 
 ];
