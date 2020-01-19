@@ -18,6 +18,7 @@ class CreateCandidatesTable extends Migration
             $table->string('name', 100);
             $table->string('email', 100);
             $table->string('phone', 50);
+            $table->string('motivation', 500);
             $table->string('linkedin_link', 100);
             $table->string('github_link', 100);
             $table->string('english_level', 100);

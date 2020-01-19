@@ -50,10 +50,8 @@ export default {
 <template>
     <div>
         <b-container class="fill home" style="color:#fff; padding:0px;" fluid>
-            <b-container class="fill" style="background:rgba(45, 34, 54,.95); padding: 30px 80px;" fluid>
-                <b-row class="mb-5">
-                    <main-menu />
-                </b-row>
+            <b-container class="fill header" fluid>
+                    <main-menu class="mb-5"/>
                 <b-row style="margin-top:-40px;">
                     <b-col>
                         <label style="color: #4EEF61; font-size: 12px;">NATAL/RN - BRASIL</label>
@@ -69,14 +67,14 @@ export default {
                         <rits-button :text="'CANDIDATE-SE'"/>
                     </b-col>
                 </b-row>
-                <b-row class="mt-5">
-                    <b-col>
+                <b-row class="mt-1">
+                    <b-col md="4">
                         <info-list :info="infos[0]"/>
                     </b-col>
-                    <b-col>
+                    <b-col md="4">
                         <info-list :info="infos[1]"/>
                     </b-col>
-                    <b-col>
+                    <b-col md="4">
                         <info-list :info="infos[2]"/>
                     </b-col>
                 </b-row>
@@ -93,7 +91,6 @@ export default {
 .title{
   font-size: 46px;
   line-height: 110%;
-  /* or 51px */
   font-family: "TT Norms, bold";
   text-align: center;
   letter-spacing: -0.025em;
@@ -102,12 +99,34 @@ export default {
 .fill { 
     min-height: 100%;
     height: auto;
-    padding:30px 0px;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.header{
+    background:rgba(45, 34, 54,.95);
+    padding:30px 100px !important;
+}
+
+@media (max-width: 320px) { 
+    .title{
+        font-size:40px;
+    }
+}
+
+@media (max-width: 760px) { 
+     .header{
+        padding: 30px 30px !important;
+    }
+ }
+@media (min-width: 1200px) {
+    .header{
+        padding: 30px 200px !important;
+    }
+}
+
 .home{
+  height: auto;
   background-image: url("../assets/img/background.png");
 }
 </style>

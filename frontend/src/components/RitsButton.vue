@@ -1,14 +1,17 @@
 <script>
 export default {
     name:'rits-button',
-    props: ['text', 'widthPercent']
+    props: ['text', 'widthPercent', 'loading']
 }
 </script>
 
 <template>
     <button 
         :style="widthPercent ? 'width:'+ widthPercent + '%': '' 
-        + !widthPercent ? 'box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);': ''">{{ text }}</button>
+        + !widthPercent ? 'box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);': ''">
+        <b-spinner v-if="widthPercent && loading" variant="light" label="Spinning"></b-spinner>
+        <span v-else >{{text}}</span>
+    </button>
 </template>
 
 

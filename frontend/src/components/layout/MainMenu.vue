@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <nav>
+    <!-- <nav>
         <div>
             <img src="../../assets/img/rits-logo.png" />
         </div>
@@ -18,12 +18,37 @@ export default {
             <div class="menu-link">NOSSOS VALORES</div>
             <rits-button :text="'VAGAS ABERTAS'"/>
         </div>
-    </nav>
+    </nav> -->
+    <b-navbar toggleable="sm" variant="faded" type="dark" class="p-0">
+
+        <b-navbar-brand>
+            <img src="../../assets/img/rits-logo.png" />
+        </b-navbar-brand>
+
+        <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-text-collapse" is-nav right>
+            <b-navbar-nav class="ml-auto" style="display:flex !important; align-items:baseline !important;" right>
+                <b-nav-item class="pr-3">A RITS</b-nav-item>
+                <b-nav-item class="pr-3">NOSSOS VALORES</b-nav-item>
+                <b-nav-item>
+                    <rits-button :text="'VAGAS ABERTAS'"/>
+                </b-nav-item>
+            </b-navbar-nav>
+        </b-collapse>
+    </b-navbar>
 </template>
 
-<style scoped>
+<style>
 
-nav{
+.navbar-dark .navbar-nav .nav-link{
+    color:#fff !important
+}
+
+.navbar-dark .navbar-toggler-icon{
+    color:#fff !important;
+}
+/* nav{
     display:flex; 
     justify-content:space-between; 
     align-items:baseline; 
@@ -44,6 +69,6 @@ nav > div:nth-child(2) > .menu-link{
   line-height: 17px;
   letter-spacing: 0.025em;
   text-transform: uppercase;
-}
+} */
 
 </style>

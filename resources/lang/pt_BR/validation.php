@@ -147,8 +147,8 @@ return [
     'attributes' => [
         'name' => 'nome',
         'phone' => 'telefone',
-        'linkedin_link' => 'linkedin_link',
-        'github_link' => 'link do github',
+        'linkedin_link' => 'url do linkedin',
+        'github_link' => 'url do github',
         'english_level' => 'nível de inglês',
         'salary' => 'salário',        
     ],

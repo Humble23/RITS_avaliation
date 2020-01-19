@@ -10,6 +10,7 @@ class Candidate extends Model
         'name', 
         'email',
         'phone',
+        'motivation',
         'linkedin_link', 
         'github_link',
         'english_level', 

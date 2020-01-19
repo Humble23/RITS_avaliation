@@ -1,7 +1,7 @@
 <script>
 export default {
     name:'custom-select',
-    props:['label', 'english_level'],
+    props:['label', 'english_level', 'error', 'placeholder'],
     computed: {
         english: {
             get() {
@@ -19,12 +19,21 @@ export default {
 <template>
     <div class="select-style">
         <label>{{label}}</label>
-        <select class="custom-select" v-model="english">
-            <option value="Escolha">Escolha</option>
+        <select 
+            class="custom-select" 
+            :class="error ? ' has-error' : ''" 
+            :placeholder="placeholder"
+            v-model="english">
+            <option value="" selected>Escolha</option>
             <option value="Básico">Básico</option>
             <option value="Médio">Médio</option>
             <option value="Avançado">Avançado</option>
         </select>
+        <div class="error">
+            <p>
+                {{error ? error[0] : ''}}
+            </p>
+        </div>
     </div>
 </template>
 
@@ -64,5 +73,29 @@ label{
 
     letter-spacing: -0.025em;
     text-transform: uppercase;
+}
+
+.has-error{
+  border-color: rgba(235, 64, 52, 0.8) !important;
+  box-shadow: 0 1px 1px rgba(235, 64, 52, 0.075) inset, 0 0 0px 2px rgba(235, 64, 52, 0.6) !important;
+  outline: 0 none !important;
+}
+
+.error{
+  max-width:300px;
+  margin:0px auto;
+}
+
+.error > p{
+  color:red;
+  text-align: left;
+  font-size:15px;
+  margin:0px;
+}
+
+@media (max-width: 320px) { 
+    label{
+        transform:translate(-126px, 14px);
+    }
 }
 </style>

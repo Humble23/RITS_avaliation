@@ -17,17 +17,32 @@ export default {
                     thousands: '.',
                     prefix: 'R$ ',
                     precision: 2,
-                    masked: false /* doesn't work with directive */
+                    masked: false
                 },
                 form: {
-                    name: 'teste',
+                    name: '',
                     email: '',
                     phone: '',
+                    motivation: 'dsadsads',
                     linkedin_link: '',
                     github_link: '',
                     english_level: '',
                     salary: '',
                     curriculum: ''
+                },
+                loading: false,
+                errors: {
+                    errors:{
+                        name: '',
+                        email: '',
+                        phone: '',
+                        motivation: '',
+                        linkedin_link: '',
+                        github_link: '',
+                        english_level: '',
+                        salary: '',
+                        curriculum: ''
+                    }
                 }
         }
     },
@@ -45,7 +60,18 @@ export default {
     methods:{
         async onSubmit(e){
             e.preventDefault();
-            await this.register(this.form);
+            try {
+                this.loading = true;
+                await this.register(this.form);
+
+                alert("Curriculum enviado com sucesso para avaliação");
+
+                window.location.reload();
+            } catch(error) {
+                error.response && (this.errors = error.response.data);
+            } finally {
+                this.loading = false;
+            }
 
         },
         fileChanged(payload){
@@ -57,7 +83,7 @@ export default {
 </script>
 
 <template>
-    <div class="form">
+    <div id="myForm" class="form">
         <b-form @submit="onSubmit">
             <b-row>
                 <b-col>
@@ -71,7 +97,8 @@ export default {
                         :label="'Nome Completo'" 
                         :input-name="'name'"
                         :value.sync="form.name"
-                        :placeholder="'seu nome'"/>
+                        :placeholder="'seu nome'"
+                        :error="errors.errors.name"/>
                 </b-col>
             </b-row>
             <b-row>
@@ -81,7 +108,8 @@ export default {
                         :label="'Email'" 
                         :input-name="'email'"
                         :value.sync="form.email"
-                        :placeholder="'email@email.com.br'"/>
+                        :placeholder="'email@email.com.br'"
+                        :error="errors && errors.errors.email" />
                 </b-col>
             </b-row>
             <b-row>
@@ -91,7 +119,8 @@ export default {
                         :label="'Telefone (COM DDD)'" 
                         :input-name="'phone'"
                         :value.sync="form.phone"
-                        :placeholder="'(xx) xxxxx-xxxx'" />
+                        :placeholder="'(xx) xxxxx-xxxx'" 
+                        :error="errors.errors.phone"/>
                 </b-col>
             </b-row>
             <b-row class="mt-4">
@@ -101,7 +130,9 @@ export default {
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-textarea />
+                    <custom-textarea 
+                        :value.sync="form.motivation"
+                        :error="errors.errors.motivation" />
                 </b-col>
             </b-row>
             <b-row class="mt-4">
@@ -115,7 +146,8 @@ export default {
                         :value.sync="form.linkedin_link"
                         :label="'Url do seu linkedin'" 
                         :placeholder="'www.linkedin.com/xxxxxxxxxx'"
-                        :input-name="'linkedin_link'" />
+                        :input-name="'linkedin_link'" 
+                        :error="errors.errors.linkedin_link" />
                 </b-col>
             </b-row>
             <b-row>
@@ -124,14 +156,17 @@ export default {
                         :label="'Url do seu github'" 
                         :value.sync="form.github_link"
                         :placeholder="'www.github.com/xxxxxxxxxx'"
-                        :input-name="'github_link'" />
+                        :input-name="'github_link'" 
+                        :error="errors.errors.github_link" />
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
                     <custom-select 
                         :value.sync="form.english_level"
-                        :label="'Qual o seu nível de inglês'" />
+                        :label="'Qual o seu nível de inglês'"
+                        :placeholder="'Escolha'" 
+                        :error="errors.errors.english_level" />
                 </b-col>
             </b-row>
             <b-row>
@@ -139,6 +174,7 @@ export default {
                     <custom-input 
                         :label="'Pretenção Salarial'" 
                         :value.sync="form.salary"
+                        :error="errors.errors.salary"
                         v-money="money" />
                 </b-col>
             </b-row>
@@ -153,12 +189,17 @@ export default {
                         class="my-3"
                         :curriculum="form.curriculum"
                         @fileChanged="fileChanged"
+                        :error="errors.errors.curriculum"
                         :text="'Escolha o arquivo'" />
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <rits-button type="submit" class="mt-3" :text="'ENVIAR'" :widthPercent="35" />
+                    <rits-button 
+                        type="submit" 
+                        class="mt-3" 
+                        :text="'ENVIAR'" 
+                        :loading="loading" :widthPercent="35" />
                 </b-col>
             </b-row>
         </b-form>
@@ -173,6 +214,10 @@ label{
     text-align: center;
     letter-spacing: -0.025em;
     color: #2E2236;
+}
+
+.form{
+    padding: 50px 0px;
 }
 
 </style>

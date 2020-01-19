@@ -19,7 +19,6 @@ export default {
 div{
     text-align: left;
     width: 100%;
-    height: 264px;
 }
 
 div > p{

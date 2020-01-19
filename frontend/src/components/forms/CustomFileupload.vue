@@ -2,7 +2,7 @@
 import ClipIcon from '../../assets/svg/clip.svg';
 export default {
     name:'custom-fileupload',
-    props: ['value', 'curriculum'],
+    props: ['value', 'curriculum', 'error'],
     components:{
         ClipIcon
     },
@@ -17,7 +17,9 @@ export default {
 
 <template>
     <div class="custom-fileupload">
-        <button class="custom-btn">
+        <button 
+            class="custom-btn"
+            :class="error ? ' has-error' : ''" >
             <template v-if="!curriculum">
                 <clip-icon class="clip-icon" /> 
                 Escolha o arquivo
@@ -26,6 +28,11 @@ export default {
                 {{ curriculum.name }}
             </template>
         </button>
+        <div class="error">
+            <p>
+            {{error ? error[0] : ''}}
+            </p>
+        </div>
         <input 
             type="file" 
             name="myfile"
@@ -55,6 +62,22 @@ export default {
     line-height: 110%;
     text-align: center;
     letter-spacing: -0.025em;
+}
+
+.has-error{
+  border-color: rgba(235, 64, 52, 0.8) !important;
+}
+
+.error{
+  max-width:300px;
+  margin:0px auto;
+}
+
+.error > p{
+  color:red;
+  text-align: left;
+  font-size:15px;
+  margin:0px;
 }
 
 .custom-fileupload input[type=file] {

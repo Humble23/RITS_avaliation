@@ -1,7 +1,7 @@
 <script>
 export default {
     name:'custom-input',
-    props:['label', 'placeholder', 'value', 'param'],
+    props:['label', 'placeholder', 'value', 'param', 'error'],
     computed:{
       new_value: {
         get() {
@@ -17,12 +17,18 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="input">
     <label>{{label}}</label>
-    <input 
-      class="custom-input" 
+    <input
+      class="custom-input"
+      :class="error ? ' has-error' : ''" 
       :placeholder="placeholder" 
       v-model="new_value" />
+      <div class="error">
+        <p>
+          {{error ? error[0] : ''}}
+        </p>
+      </div>
   </div>
 </template>
 
@@ -52,6 +58,12 @@ export default {
     letter-spacing: -0.025em;
 }
 
+.has-error{
+  border-color: rgba(235, 64, 52, 0.8) !important;
+  box-shadow: 0 1px 1px rgba(235, 64, 52, 0.075) inset, 0 0 0px 2px rgba(235, 64, 52, 0.6) !important;
+  outline: 0 none !important;
+}
+
 .custom-input:focus{   
     border-color: rgba(78, 239, 97, 0.8);
     box-shadow: 0 1px 1px rgba(78, 239, 97, 0.075) inset, 0 0 0px 2px rgba(78, 239, 97, 0.6);
@@ -66,5 +78,23 @@ label{
     line-height: 110%;
     letter-spacing: -0.025em;
     text-transform: uppercase;
+}
+
+.error{
+  max-width:300px;
+  margin:0px auto;
+}
+
+.error > p{
+  color:red;
+  text-align: left;
+  font-size:15px;
+  margin:0px;
+}
+
+@media (max-width: 320px) { 
+    label{
+        transform:translate(-126px, 14px);
+    }
 }
 </style>
