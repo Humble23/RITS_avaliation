@@ -1,18 +1,29 @@
 <script>
 export default {
     name:'custom-select',
-    props:['label']
+    props:['label', 'english_level'],
+    computed: {
+        english: {
+            get() {
+                return this.value;
+            },
+
+            set(newValue, oldValue) {
+                if (newValue !== oldValue) this.$emit("update:value", newValue);
+            }
+        },
+    }
 }
 </script>
 
 <template>
     <div class="select-style">
         <label>{{label}}</label>
-        <select class="custom-select">
-            <option>Escolha</option>
-            <option>Básico</option>
-            <option>Médio</option>
-            <option>Avançado</option>
+        <select class="custom-select" v-model="english">
+            <option value="Escolha">Escolha</option>
+            <option value="Básico">Básico</option>
+            <option value="Médio">Médio</option>
+            <option value="Avançado">Avançado</option>
         </select>
     </div>
 </template>

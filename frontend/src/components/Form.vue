@@ -4,14 +4,14 @@ import CustomTextarea from '@/components/forms/CustomTextarea.vue';
 import CustomSelect from '@/components/forms/CustomSelect.vue';
 import CustomFileupload from '@/components/forms/CustomFileupload.vue';
 import RitsButton from '@/components/RitsButton.vue';
-import {VMoney} from 'v-money';
+import { register } from "@/api/candidates";
+import { VMoney } from 'v-money';
 import { VueMaskDirective } from 'v-mask'
 
 export default {
     name:'custom-form',
     data () {
         return {
-                price: 123.45,
                 money: {
                     decimal: ',',
                     thousands: '.',
@@ -19,7 +19,16 @@ export default {
                     precision: 2,
                     masked: false /* doesn't work with directive */
                 },
-                name: '',
+                form: {
+                    name: 'teste',
+                    email: '',
+                    phone: '',
+                    linkedin_link: '',
+                    github_link: '',
+                    english_level: '',
+                    salary: '',
+                    curriculum: ''
+                }
         }
     },
     components:{
@@ -34,11 +43,15 @@ export default {
         VueMaskDirective
     },
     methods:{
-        onSubmit(e){
-            console.log(this.name);
-
+        async onSubmit(e){
             e.preventDefault();
-        }
+            await this.register(this.form);
+
+        },
+        fileChanged(payload){
+            this.form.curriculum = payload;
+        },
+        register
     }
 }
 </script>
@@ -55,8 +68,9 @@ export default {
                 <b-col>
                     <custom-input 
                         type="text"
-                        v-model="name"
                         :label="'Nome Completo'" 
+                        :input-name="'name'"
+                        :value.sync="form.name"
                         :placeholder="'seu nome'"/>
                 </b-col>
             </b-row>
@@ -65,6 +79,8 @@ export default {
                     <custom-input 
                         type="email"
                         :label="'Email'" 
+                        :input-name="'email'"
+                        :value.sync="form.email"
                         :placeholder="'email@email.com.br'"/>
                 </b-col>
             </b-row>
@@ -73,6 +89,8 @@ export default {
                     <custom-input 
                         type="tel"
                         :label="'Telefone (COM DDD)'" 
+                        :input-name="'phone'"
+                        :value.sync="form.phone"
                         :placeholder="'(xx) xxxxx-xxxx'" />
                 </b-col>
             </b-row>
@@ -83,7 +101,7 @@ export default {
             </b-row>
             <b-row>
                 <b-col>
-                <custom-textarea />
+                    <custom-textarea />
                 </b-col>
             </b-row>
             <b-row class="mt-4">
@@ -93,22 +111,35 @@ export default {
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-input :label="'Url do seu linkedin'" :placeholder="'www.linkedin.com/xxxxxxxxxx'"/>
+                    <custom-input 
+                        :value.sync="form.linkedin_link"
+                        :label="'Url do seu linkedin'" 
+                        :placeholder="'www.linkedin.com/xxxxxxxxxx'"
+                        :input-name="'linkedin_link'" />
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-input :label="'Url do seu github'" :placeholder="'www.github.com/xxxxxxxxxx'"/>
+                    <custom-input 
+                        :label="'Url do seu github'" 
+                        :value.sync="form.github_link"
+                        :placeholder="'www.github.com/xxxxxxxxxx'"
+                        :input-name="'github_link'" />
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-select :label="'Qual o seu nível de inglês'"/>
+                    <custom-select 
+                        :value.sync="form.english_level"
+                        :label="'Qual o seu nível de inglês'" />
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-input :label="'Pretenção Salarial'" v-money="money"/>
+                    <custom-input 
+                        :label="'Pretenção Salarial'" 
+                        :value.sync="form.salary"
+                        v-money="money" />
                 </b-col>
             </b-row>
             <b-row class="mt-5">
@@ -118,7 +149,11 @@ export default {
             </b-row>
             <b-row>
                 <b-col>
-                    <custom-fileupload class="my-3" :text="'Escolha o arquivo'" />
+                    <custom-fileupload 
+                        class="my-3"
+                        :curriculum="form.curriculum"
+                        @fileChanged="fileChanged"
+                        :text="'Escolha o arquivo'" />
                 </b-col>
             </b-row>
             <b-row>

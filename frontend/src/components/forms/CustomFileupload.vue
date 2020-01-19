@@ -2,19 +2,35 @@
 import ClipIcon from '../../assets/svg/clip.svg';
 export default {
     name:'custom-fileupload',
+    props: ['value', 'curriculum'],
     components:{
         ClipIcon
+    },
+    methods: {
+        fileChanged() {
+            this.$emit("fileChanged", this.$refs.file.files[0]);
+        },
     }
+
 }
 </script>
 
 <template>
     <div class="custom-fileupload">
         <button class="custom-btn">
-            <clip-icon class="clip-icon" /> 
-            Escolha o arquivo
+            <template v-if="!curriculum">
+                <clip-icon class="clip-icon" /> 
+                Escolha o arquivo
+            </template>
+            <template>
+                {{ curriculum.name }}
+            </template>
         </button>
-        <input type="file" name="myfile">
+        <input 
+            type="file" 
+            name="myfile"
+            ref="file"
+            v-on:change="fileChanged()" />
     </div>
 </template>
 

@@ -1,14 +1,28 @@
 <script>
 export default {
     name:'custom-input',
-    props:['label', 'placeholder', 'param'],
+    props:['label', 'placeholder', 'value', 'param'],
+    computed:{
+      new_value: {
+        get() {
+          return this.value;
+        },
+
+        set(newValue, oldValue) {
+          if (newValue !== oldValue) this.$emit("update:value", newValue);
+        }
+      },
+    }
 }
 </script>
 
 <template>
   <div>
     <label>{{label}}</label>
-    <input class="custom-input" :placeholder="placeholder" />
+    <input 
+      class="custom-input" 
+      :placeholder="placeholder" 
+      v-model="new_value" />
   </div>
 </template>
 
@@ -50,8 +64,6 @@ label{
     color: #6C6472;
     font-size: 10px;
     line-height: 110%;
-    /* identical to box height, or 11px */
-
     letter-spacing: -0.025em;
     text-transform: uppercase;
 }
