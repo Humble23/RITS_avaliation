@@ -6,3 +6,5 @@
     <li>Desenvolvimento da API com o <strong>**LARAVEL**</strong></li>
     <li>Painel administrativo usei como base o Voyager (pacote php para LARAVEL)</li>
 </ul>
+
+<h2>Como rodar localmente</h2>
