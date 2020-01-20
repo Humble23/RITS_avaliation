@@ -25,7 +25,7 @@
 
 <p>Criando as tabelas</p>
 
-<pre>$ php artisan migrate</p>
+<pre>$ php artisan migrate</pre>
 
 <p>Alimentando as tabelas com as configurações das breads do voyager e dados do usuário admin</p>
 
