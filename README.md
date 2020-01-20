@@ -3,6 +3,6 @@
 
 <ul>
     <li>CLI do <strong>**VUEJS**</strong> na criação da landing page de captura de currículos;</li>
-    <li>Desenvolvimento API utilizei o <strong>**LARAVEL**</strong</li>
-    <li>Painel administrativo usei como base o Voyager</li>
+    <li>Desenvolvimento da API com o <strong>**LARAVEL**</strong></li>
+    <li>Painel administrativo usei como base o Voyager (pacote php para LARAVEL)</li>
 </ul>
