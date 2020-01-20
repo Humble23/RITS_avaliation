@@ -20,7 +20,7 @@
 
 <h3>Rodando Painel administrativo e a API:</h3>
 
-<p>Instale as dependências</p>
+<p>No diretório da raiz da aplicação instale as dependências do composer</p>
 <pre>$ composer install</pre>
 
 <p>Execute</p>
