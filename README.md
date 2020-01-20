@@ -23,6 +23,19 @@
 <p>No diretório raiz da aplicação instale as dependências do composer</p>
 <pre>$ composer install</pre>
 
+<p>Criando as tabelas</p>
+
+<pre>$ php artisan migrate</p>
+
+<p>Alimentando as tabelas com as configurações das breads do voyager e dados do usuário admin</p>
+
+<pre>$ php artisan db:seed</pre>
+
+Após rodar o comando será criado o usuário com as seguintes credenciais para acessar o painel do voyager:
+
+email: admin@rits.com.br
+senha: 12345678
+
 <p>execute o comando</p>
 
 <pre>$ php artisan serve</pre>
