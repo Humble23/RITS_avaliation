@@ -23,4 +23,6 @@
 <p>No diretório da raiz da aplicação instale as dependências do composer</p>
 <pre>$ composer install</pre>
 
-<p>Execute</p>
+<p>execute o comando</p>
+
+<pre>$ php artisan serve</pre>
