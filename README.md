@@ -42,7 +42,7 @@ Após rodar o comando será criado o usuário com as seguintes credenciais para 
 
 <pre>$ php artisan serve</pre>
 
-<pre>ps: O APP_URL do laravel para está definido como <strong>localhost:8001</strong>, <br/>preferencialmente executando nessa ordem nem uma ação a mais será necessária</pre> 
+<pre>ps: Para localização correto de imagens e arquivos no admin, <br />configurar APP_URL com <strong>localhost:<porta></strong> exato</pre> 
 
 
 ** Caso necessário instalação do <a href="https://nodejs.org/en/docs/" target="_blank">NODE</a> e/ou <a href="https://vuejs.org/v2/guide/">VUE</a> na máquina, consulte a documentação **
