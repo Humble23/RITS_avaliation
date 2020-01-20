@@ -33,8 +33,8 @@
 
 Após rodar o comando será criado o usuário com as seguintes credenciais para acessar o painel do voyager:
 
-email: admin@rits.com.br
-senha: 12345678
+<label>email: admin@rits.com.br</label>
+<label>senha: 12345678</label>
 
 <p>execute o comando</p>
 
