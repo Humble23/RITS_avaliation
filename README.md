@@ -10,9 +10,9 @@
 <h2>Como rodar localmente:</h2>
 
 <h3>Rodando o sistema de captura de curriculums:</h3>
-<p>Dentro do diretório <strong>frontend</strong> instale as dependências npm executando o comando:</p>
+<p>Dentro do diretório <strong>frontend</strong> instale as dependências do npm executando o comando:</p>
 
-<pre>npm install</pre>
+<pre>$ npm install</pre>
 
 <p>Ainda dentro do diretório <strong>frontend</strong> execute o comando:</p>
 
@@ -20,4 +20,7 @@
 
 <h3>Rodando Painel administrativo e a API:</h3>
 
+<p>Instale as dependências</p>
 <pre>$ composer install</pre>
+
+<p>Execute</p>
