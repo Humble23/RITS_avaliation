@@ -1,4 +1,4 @@
-<h1>Desafio RITS - vaga DESENVOLVEDOR PHP</h1>
+<h1>Desafio RITS - Vaga DESENVOLVEDOR PHP</h1>
 <p>Para a resolução do desafio proposto, utilizei as seguintes tecnologias:
 
 <ul>
