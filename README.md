@@ -4,7 +4,7 @@
 <ul>
     <li>CLI do <strong>**VUEJS**</strong> na criação da landing page de captura de currículos;</li>
     <li>Desenvolvimento da API com o <strong>**LARAVEL**</strong></li>
-    <li>Painel administrativo usei como base o Voyager (pacote php para LARAVEL)</li>
+    <li>Painel administrativo usei como base o <strong>**Voyager**</strong> (pacote php para LARAVEL)</li>
 </ul>
 
 <h2>Como rodar localmente:</h2>
