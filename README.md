@@ -26,3 +26,6 @@
 <p>execute o comando</p>
 
 <pre>$ php artisan serve</pre>
+
+
+** Caso necessário instalação do node e/ou vue na máquina, consulte a documentação **
