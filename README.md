@@ -9,7 +9,7 @@
 
 <h2>Como rodar localmente:</h2>
 
-<h3>Rodando o sistema de captura de curriculums:</h3>
+<h3>Rodando a landing page de captura de curriculums:</h3>
 <p>Dentro do diretório <strong>frontend</strong> instale as dependências do npm executando o comando:</p>
 
 <pre>$ npm install</pre>
