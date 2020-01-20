@@ -28,4 +28,4 @@
 <pre>$ php artisan serve</pre>
 
 
-** Caso necessário instalação do node e/ou vue na máquina, consulte a documentação **
+** Caso necessário instalação do <a href="https://nodejs.org/en/docs/">NODE</a> e/ou <a href="https://vuejs.org/v2/guide/">VUE</a> na máquina, consulte a documentação **
